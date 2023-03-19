@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  ros-practice:
+    image: local/ros-practice:230318
+    build:
+      context: .
+      target: ros-practice_base
+    tty: true
+    restart: always
+    shm_size: 512m
+
+    ports:
+      - "127.0.0.1:6080:80"
+    volumes:
+      - ../:/workspace
